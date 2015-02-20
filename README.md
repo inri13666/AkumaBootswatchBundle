@@ -63,6 +63,11 @@ akuma_bootswatch:
     output_dir: ~ # default empty to output all into "%kernel.root_dir%/../web"
 ```
 
+To install fonts you need to execute the next command:
+```cmd
+php app/console akuma:bootswatch:install
+```
+
 Compatibility
 -------------
 
