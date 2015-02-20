@@ -1,0 +1,14 @@
+parameters:
+    akuma_bootswatch.assetic.filter.exposed.class: Akuma\Bundle\BootswatchBundle\Assetic\Filter\ExposedFilter
+services:
+#    akuma_bootswatch.example:
+#        class: Akuma\Bundle\BootswatchBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    akuma_bootswatch.assetic.filter.exposed:
+        class: %akuma_bootswatch.assetic.filter.exposed.class%
+        arguments: []
+        calls:
+            - [setContainer, ["@service_container"]]
+        tags:
+            - { name: assetic.filter alias="exposed" }

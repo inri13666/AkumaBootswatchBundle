@@ -1,0 +1,3 @@
+akuma_bootswatch_homepage:
+    path:     /akuma/bootswatch/demo
+    defaults: { _controller: AkumaBootswatchBundle:Default:index }
