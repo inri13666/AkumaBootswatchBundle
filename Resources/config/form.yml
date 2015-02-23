@@ -1,0 +1,52 @@
+parameters:
+    akuma_bootswatch.form.type.collection.class: Akuma\Bundle\BootswatchBundle\Form\Type\BootstrapCollectionType
+    akuma_bootswatch.form.type.money.class: Akuma\Bundle\BootswatchBundle\Form\Type\MoneyType
+    akuma_bootswatch.form.type.form_actions.class: Akuma\Bundle\BootswatchBundle\Form\Type\FormActionsType
+    akuma_bootswatch.form.type.form_static_control.class: Akuma\Bundle\BootswatchBundle\Form\Type\FormStaticControlType
+    akuma_bootswatch.form.extension.form_style.class: Akuma\Bundle\BootswatchBundle\Form\Extension\FormStyleExtension
+    akuma_bootswatch.form.extension.typesetter_extension.class: Akuma\Bundle\BootswatchBundle\Form\Extension\TypeSetterExtension
+    akuma_bootswatch.form.extension.button_extension.class: Akuma\Bundle\BootswatchBundle\Form\Extension\ButtonTypeExtension
+    akuma_bootswatch.form.extension.static_control.class: Akuma\Bundle\BootswatchBundle\Form\Extension\StaticControlExtension
+    akuma_bootswatch.form.extension.input_group_button.class: Akuma\Bundle\BootswatchBundle\Form\Extension\InputGroupButtonExtension
+
+services:
+#    akuma_bootswatch.example:
+#        class: Akuma\Bundle\BootswatchBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    akuma_bootswatch.form.type.collection:
+        class: %akuma_bootswatch.form.type.collection.class%
+        tags: [{ name: form.type , alias: bootstrap_collection }]
+
+    akuma_bootswatch.form.type.money:
+        class: %akuma_bootswatch.form.type.money.class%
+        tags: [{ name: form.type , alias: money }]
+
+    akuma_bootswatch.form.type.form_actions:
+        class: %akuma_bootswatch.form.type.form_actions.class%
+        tags: [{ name: form.type , alias: form_actions }]
+
+    akuma_bootswatch.form.type.form_control_static:
+        class: %akuma_bootswatch.form.type.form_static_control.class%
+        tags: [{ name: form.type , alias: bs_static }]
+
+    #EXTENSIONS
+    akuma_bootswatch.form.extension.typesetter_extension:
+        class: %akuma_bootswatch.form.extension.typesetter_extension.class%
+        tags: [{ name: form.type_extension , alias: form }]
+
+    akuma_bootswatch.form.extension.form_action_button:
+        class: %akuma_bootswatch.form.extension.button_extension.class%
+        tags: [{ name: form.type_extension , alias: button }]
+
+    akuma_bootswatch.form.extension.static_control:
+        class: %akuma_bootswatch.form.extension.static_control.class%
+        tags: [{ name: form.type_extension , alias: form }]
+
+    akuma_bootswatch.form.extension.input_group_button:
+        class: %akuma_bootswatch.form.extension.input_group_button.class%
+        tags: [{ name: form.type_extension , alias: text }]
+
+    akuma_bootswatch.form.extension.form_style:
+        class: %akuma_bootswatch.form.extension.form_style.class%
+        tags: [{ name: form.type_extension , alias: form }]

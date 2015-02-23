@@ -196,6 +196,7 @@ class Configuration
                 $this->normalizePath($config['bootswatch']['path'], $path, '/scrollspy.js'),
                 $this->normalizePath($config['bootswatch']['path'], $path, '/tab.js'),
                 $this->normalizePath($config['bootswatch']['path'], $path, '/affix.js'),
+                $this->normalizePath(dirname(__FILE__).'/../../Resources/js/bc-bootstrap-collection.js'),
             ),
             'output' => $this->normalizePath(isset($config['output_dir']) ? array($config['output_dir'], 'js/bootstrap.js') : 'js/bootstrap.js')
         );

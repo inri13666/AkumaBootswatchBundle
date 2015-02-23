@@ -81,6 +81,13 @@ class Configuration implements ConfigurationInterface
             ->end();
         $rootNode->children()->scalarNode('jquery_path')->defaultNull()->end();
         $rootNode->children()->booleanNode('font_awesome')->treatNullLike(true)->defaultTrue()->end();
+
+        $rootNode->children()->scalarNode('icon_prefix')
+            ->defaultValue('glyphicon')
+            ->end()
+            ->scalarNode('icon_tag')
+            ->defaultValue('span')
+            ->end();
         return $treeBuilder;
     }
 }

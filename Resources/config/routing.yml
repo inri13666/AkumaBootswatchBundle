@@ -1,3 +1,4 @@
-akuma_bootswatch_homepage:
-    path:     /akuma/bootswatch/demo
-    defaults: { _controller: AkumaBootswatchBundle:Default:index }
+darom_admin:
+    resource: @AkumaBootswatchBundle/Controller/
+    type:     annotation
+    prefix: /akuma/bootswatch/

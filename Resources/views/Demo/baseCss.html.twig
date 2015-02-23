@@ -1,0 +1,55 @@
+{% extends 'AkumaBootswatchBundle:Default:_layout.html.twig' %}
+
+{% block title %}Base · Twitter Bootstrap for Symfony2{% endblock %}
+
+{% block body %}
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="jumbotron subhead" id="overview">
+        <div class="container">
+            <h1>Base CSS</h1>
+
+            <p class="lead">Fundamental HTML elements styled and enhanced with extensible classes.</p>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+        <div class="row">
+            <h2 id="forms-example">Basic From example</h2>
+        </div>
+        <div class="row">
+            {{ form(basicExample) }}
+        </div>
+        <div class="row">
+            <h2 id="forms-example">Inline Form example</h2>
+        </div>
+        <div class="row">
+            {{ form(inlineForm) }}
+        </div>
+        <div class="row">
+            <h2 id="forms-example">Horisontal Form example</h2>
+        </div>
+        <div class="row">
+            {{ form(horizontalForm) }}
+        </div>
+
+        <div class="row">
+            <h2 id="forms-example">Prepend/Append Inputs</h2>
+        </div>
+
+        <div class="row">
+            {{ form(builderForm) }}
+        </div>
+
+        {#<div class="row">#}
+            {#<h2 id="forms-example">Supported Types</h2>#}
+        {#</div>#}
+        {#<div class="row">#}
+            {#{{ form(supportedControls) }}#}
+        {#</div>#}
+    </div>
+
+{% endblock %}

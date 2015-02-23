@@ -3,7 +3,7 @@
     "type"             : "symfony-bundle",
     "description"      : "Akuma Bootswatch Bundle",
     "keywords"         : ["bootstrap", "bootswatch"],
-    "homepage"         : "http://bootswatch.akuma.in",
+    "homepage"         : "",
     "license"          : "MIT",
     "authors"          : [
         {
