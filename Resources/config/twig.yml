@@ -2,6 +2,7 @@ parameters:
     akuma_bootswatch.twig.icon_extension.class: Akuma\Bundle\BootswatchBundle\Twig\BootstrapIconExtension
     akuma_bootswatch.twig.label_extension.class: Akuma\Bundle\BootswatchBundle\Twig\BootstrapLabelExtension
     akuma_bootswatch.twig.badge_extension.class: Akuma\Bundle\BootswatchBundle\Twig\BootstrapBadgeExtension
+    akuma_bootswatch.twig.menu_extension.class: Akuma\Bundle\BootswatchBundle\Twig\BootstrapMenuExtension
     akuma_bootswatch.twig.form_extension.class: Akuma\Bundle\BootswatchBundle\Twig\BootstrapFormExtension
 #    akuma_bootswatch.icon_prefix: ~
 services:
@@ -14,6 +15,9 @@ services:
         tags: [{ name: twig.extension }]
     akuma_bootswatch.twig.badge_extension:
         class: %akuma_bootswatch.twig.badge_extension.class%
+        tags: [{ name: twig.extension }]
+    akuma_bootswatch.twig.menu_extension:
+        class: %akuma_bootswatch.twig.menu_extension.class%
         tags: [{ name: twig.extension }]
     akuma_bootswatch.twig.form_extension:
         class: %akuma_bootswatch.twig.form_extension.class%
