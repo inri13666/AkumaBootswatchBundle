@@ -13,8 +13,8 @@
     ],
     "minimum-stability": "dev",
     "require"          : {
-        "php"                     : ">=5.3",
-        "thomaspark/bootswatch"   : "~3.3"
+        "php"                  : ">=5.3",
+        "thomaspark/bootswatch": "~3.3"
     },
     "require-dev"      : {
         "leafo/scssphp"    : "0.1.*",
@@ -27,11 +27,11 @@
         }
     },
     "suggest"          : {
-        "knplabs/knp-paginator-bundle" : "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features.",
-        "knplabs/knp-menu-bundle"      : "This bundle provides an integration of the KnpMenu library.",
-        "knplabs/knp-menu"             : "An object oriented menu library."
+        "knplabs/knp-paginator-bundle": "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features.",
+        "knplabs/knp-menu-bundle"     : "This bundle provides an integration of the KnpMenu library.",
+        "knplabs/knp-menu"            : "An object oriented menu library."
     },
-    "extra": {
+    "extra"            : {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
