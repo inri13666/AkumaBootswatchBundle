@@ -8,18 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 
-/**
- * Class InputGroupButtonExtension
- *
- * Handles prepended and appended buttons to input fields.
- * Buttons are created and stored during the BuildForm phase and rendered during the buildView Phase.
- *
- * Known issues:
- * - since at build time the form parent is unavailable, two forms with fields of the same name, with buttons attached
- * may cause conflict.
- *
- * @package Braincrafted\Bundle\BootstrapBundle\Form\Extension
- */
 class InputGroupButtonExtension extends AbstractTypeExtension
 {
     /**

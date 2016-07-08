@@ -1,18 +1,11 @@
 <?php
-/**
- * User  : Nikita.Makarov
- * Date  : 2/23/15
- * Time  : 7:36 AM
- * E-Mail: nikita.makarov@effective-soft.com
- */
 
 namespace Akuma\Bundle\BootswatchBundle\Form\Extension;
-
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormStyleExtension extends AbstractTypeExtension
 {
@@ -27,10 +20,10 @@ class FormStyleExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array('style' => null));
-        $resolver->setOptional(array('style'));
+        $resolver->setDefined(array('style'));
     }
 
     /**
@@ -38,6 +31,6 @@ class FormStyleExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'form';
+        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
     }
 } 

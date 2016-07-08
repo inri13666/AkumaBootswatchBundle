@@ -3,21 +3,12 @@
 namespace Akuma\Bundle\BootswatchBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-/**
- * StaticControlExtension
- *
- * @package    BraincraftedBootstrapBundle
- * @subpackage Form
- * @author     André Püschel <pue@der-pue.de>
- * @copyright  2014 André Püschel
- * @license    http://opensource.org/licenses/MIT The MIT License
- * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
- */
 class StaticControlExtension extends AbstractTypeExtension
 {
     /**
@@ -31,9 +22,9 @@ class StaticControlExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setOptional(array('static_control'));
+        $resolver->setDefined(array('static_control'));
     }
 
     /**
@@ -57,6 +48,6 @@ class StaticControlExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'form';
+        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
     }
 }

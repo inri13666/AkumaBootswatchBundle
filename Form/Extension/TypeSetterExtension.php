@@ -10,16 +10,6 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 
-/**
- * TypeSetterExtension
- *
- * @package    BraincraftedBootstrapBundle
- * @subpackage Form
- * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
- * @copyright  2012-2013 Florian Eckerstorfer
- * @license    http://opensource.org/licenses/MIT The MIT License
- * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
- */
 class TypeSetterExtension extends AbstractTypeExtension
 {
     /**
@@ -35,6 +25,6 @@ class TypeSetterExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return "form";
+        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
     }
 }

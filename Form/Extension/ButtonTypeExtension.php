@@ -3,20 +3,10 @@
 namespace Akuma\Bundle\BootswatchBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 
-/**
- * FormControlStaticType
- *
- * @package    BraincraftedBootstrapBundle
- * @subpackage Form
- * @author     André Püschel <pue@der-pue.de>
- * @copyright  2014 André Püschel
- * @license    http://opensource.org/licenses/MIT The MIT License
- * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
- */
 class ButtonTypeExtension extends AbstractTypeExtension
 {
     /**
@@ -28,12 +18,9 @@ class ButtonTypeExtension extends AbstractTypeExtension
         $view->vars['as_link'] = $form->getConfig()->getOption('as_link');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setOptional(array('button_class', 'as_link'));
+        $resolver->setDefined(array('button_class', 'as_link'));
     }
 
     /**
@@ -41,6 +28,6 @@ class ButtonTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'button';
+        return 'Symfony\Component\Form\Extension\Core\Type\ButtonType';
     }
 }
