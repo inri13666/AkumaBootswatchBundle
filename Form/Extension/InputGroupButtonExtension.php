@@ -7,6 +7,7 @@ use Symfony\Component\Form\ButtonBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class InputGroupButtonExtension extends AbstractTypeExtension
 {
@@ -22,7 +23,7 @@ class InputGroupButtonExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'text';
+        return TextType::class;
     }
 
     /**

@@ -9,6 +9,7 @@ namespace Akuma\Bundle\BootswatchBundle\Form\Extension;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 class TypeSetterExtension extends AbstractTypeExtension
 {
@@ -17,7 +18,7 @@ class TypeSetterExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['original_type'] = $form->getConfig()->getType()->getName();
+        $view->vars['original_type'] = $form->getConfig()->getType()->getBlockPrefix();
     }
 
     /**
@@ -25,6 +26,6 @@ class TypeSetterExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return FormType::class;
     }
 }

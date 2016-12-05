@@ -120,8 +120,8 @@ class AkumaBootswatchExtension extends Extension implements PrependExtensionInte
                         $container->prependExtensionConfig(
                             $name,
                             array(
-                                'form' => array('resources' => array('AkumaBootswatchBundle:Form:fields.html.twig')),
-//                                'form_themes' => array('AkumaBootswatchBundle:Form:fields.html.twig')
+//                                'form' => array('resources' => array('AkumaBootswatchBundle:Form:fields.html.twig')),
+                                'form_themes' => array('AkumaBootswatchBundle:Form:fields.html.twig')
                             )
                         );
                         break;
