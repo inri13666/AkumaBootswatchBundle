@@ -29,15 +29,21 @@ class MoneyType extends BaseMoneyType
     {
         $view->vars['money_pattern'] = self::getPattern($options['currency']);
     }
-
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'money';
     }
-
+    /**
+     * Backward compatibility for SF < 3.0
+     *
+     * @return null|string
+     */
+    public function getName() {
+        return $this->getBlockPrefix();
+    }
     /**
      * Returns the pattern for this locale
      *
@@ -53,34 +59,26 @@ class MoneyType extends BaseMoneyType
         if (!$currency) {
             return '{{ widget }}';
         }
-
         $locale = \Locale::getDefault();
-
         if (!isset(self::$patterns[$locale])) {
             self::$patterns[$locale] = array();
         }
-
         if (!isset(self::$patterns[$locale][$currency])) {
             $format = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
             $pattern = $format->formatCurrency('123', $currency);
-
             // the spacings between currency symbol and number are ignored, because
             // a single space leads to better readability in combination with input
             // fields
             // the regex also considers non-break spaces (0xC2 or 0xA0 in UTF-8)
-
             preg_match(
                 '/^([^\s\xc2\xa0]*)[\s\xc2\xa0]*123(?:[,.]0+)?[\s\xc2\xa0]*([^\s\xc2\xa0]*)$/u',
                 $pattern,
                 $matches
             );
-
             self::$patterns[$locale][$currency] = self::parsePatternMatches($matches);
         }
-
         return self::$patterns[$locale][$currency];
     }
-
     /**
      * Parses the given pattern matches array and returns the pattern string.
      *
@@ -93,11 +91,9 @@ class MoneyType extends BaseMoneyType
         if (!empty($matches[1])) {
             return '{{ tag_start }}'.$matches[1].'{{ tag_end }} {{ widget }}';
         }
-
         if (!empty($matches[2])) {
             return '{{ widget }} {{ tag_start }}'.$matches[2].'{{ tag_end }}';
         }
-
         // @codeCoverageIgnoreStart
         return '{{ widget }}';
         // @codeCoverageIgnoreEnd

@@ -8,8 +8,7 @@
 namespace Akuma\Bundle\BootswatchBundle\Twig;
 
 use Twig_Extension;
-use Twig_Function_Method;
-
+use Twig_SimpleFunction;
 /**
  * BootstrapLabelExtension
  *
@@ -29,17 +28,15 @@ class BootstrapLabelExtension extends Twig_Extension
     public function getFunctions()
     {
         $options = array('pre_escape' => 'html', 'is_safe' => array('html'));
-
         return array(
-            'label'          => new Twig_Function_Method($this, 'labelFunction', $options),
-            'label_primary'  => new Twig_Function_Method($this, 'labelPrimaryFunction', $options),
-            'label_success'  => new Twig_Function_Method($this, 'labelSuccessFunction', $options),
-            'label_info'     => new Twig_Function_Method($this, 'labelInfoFunction', $options),
-            'label_warning'  => new Twig_Function_Method($this, 'labelWarningFunction', $options),
-            'label_danger'   => new Twig_Function_Method($this, 'labelDangerFunction', $options)
+            new Twig_SimpleFunction('label', array($this, 'labelFunction'), $options),
+            new Twig_SimpleFunction('label_primary', array($this, 'labelPrimaryFunction'), $options),
+            new Twig_SimpleFunction('label_success', array($this, 'labelSuccessFunction'), $options),
+            new Twig_SimpleFunction('label_info', array($this, 'labelInfoFunction'), $options),
+            new Twig_SimpleFunction('label_warning', array($this, 'labelWarningFunction'), $options),
+            new Twig_SimpleFunction('label_danger', array($this, 'labelDangerFunction'), $options)
         );
     }
-
     /**
      * Returns the HTML code for a label.
      *
@@ -52,7 +49,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return sprintf('<span class="label%s">%s</span>', ($type ? ' label-' . $type : ''), $text);
     }
-
     /**
      * @param string $text
      *
@@ -62,7 +58,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return $this->labelFunction($text, 'primary');
     }
-
     /**
      * Returns the HTML code for a success label.
      *
@@ -74,7 +69,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return $this->labelFunction($text, 'success');
     }
-
     /**
      * Returns the HTML code for a warning label.
      *
@@ -86,7 +80,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return $this->labelFunction($text, 'warning');
     }
-
     /**
      * Returns the HTML code for a important label.
      *
@@ -98,7 +91,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return $this->labelFunction($text, 'danger');
     }
-
     /**
      * Returns the HTML code for a info label.
      *
@@ -110,7 +102,6 @@ class BootstrapLabelExtension extends Twig_Extension
     {
         return $this->labelFunction($text, 'info');
     }
-
     /**
      * {@inheritDoc}
      */

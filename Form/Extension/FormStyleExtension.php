@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Akuma\Bundle\BootswatchBundle\Util\LegacyFormHelper;
 
 class FormStyleExtension extends AbstractTypeExtension
 {
@@ -32,6 +33,7 @@ class FormStyleExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return FormType::class;
+        // map old class to new one using LegacyFormHelper
+        return LegacyFormHelper::getType('form');
     }
 } 

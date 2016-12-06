@@ -8,7 +8,7 @@
 namespace Akuma\Bundle\BootswatchBundle\Twig;
 
 use Twig_Extension;
-use Twig_Function_Method;
+use Twig_SimpleFunction;
 
 /**
  * BootstrapLabelExtension
@@ -29,14 +29,13 @@ class BootstrapBadgeExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            'badge' => new Twig_Function_Method(
-                $this,
-                'badgeFunction',
+            new Twig_SimpleFunction(
+                'badge',
+                array($this, 'badgeFunction'),
                 array('pre_escape' => 'html', 'is_safe' => array('html'))
             )
         );
     }
-
     /**
      * Returns the HTML code for a badge.
      *
@@ -48,7 +47,6 @@ class BootstrapBadgeExtension extends Twig_Extension
     {
         return sprintf('<span class="badge">%s</span>', $text);
     }
-
     /**
      * {@inheritDoc}
      */

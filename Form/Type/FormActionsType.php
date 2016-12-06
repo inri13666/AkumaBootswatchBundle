@@ -8,8 +8,7 @@ use Symfony\Component\Form\ButtonBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Class FormActionsType
  *
@@ -43,7 +42,6 @@ class FormActionsType extends AbstractType
         if ($form->count() == 0) {
             return;
         }
-
         array_map(array($this, 'validateButton'), $form->all());
     }
 
@@ -80,20 +78,29 @@ class FormActionsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-                'buttons'        => array(),
-                'options'        => array(),
-                'mapped'         => false,
-            ));
+            'buttons'        => array(),
+            'options'        => array(),
+            'mapped'         => false,
+        ));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'form_actions';
+    }
+
+    /**
+     * Backward compatibility for SF < 3.0
+     *
+     * @return null|string
+     */
+    public function getName() {
+        return $this->getBlockPrefix();
     }
 }
