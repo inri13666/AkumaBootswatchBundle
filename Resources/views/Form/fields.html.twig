@@ -893,7 +893,7 @@
 
 {% block widget_attributes %}
     {% spaceless %}
-        id="{{ id }}" name="{{ full_name }}"{% if read_only is defined and read_only or attr.readonly is defined and attr.readonly ? 'true' : 'false' %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if attr.maxlength is defined %} maxlength="{{ attr.max_length }}"{% endif %}{% if attr.pattern is defined %} pattern="{{ attr.pattern }}"{% endif %}
+        id="{{ id }}" name="{{ full_name }}"{% if read_only is defined or attr.readonly is defined %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if attr.maxlength is defined %} maxlength="{{ attr.max_length }}"{% endif %}{% if attr.pattern is defined %} pattern="{{ attr.pattern }}"{% endif %}
         {% for attrname, attrvalue in attr %}{% if attrname in ['placeholder', 'title'] %}{{ attrname }}="{{ attrvalue|trans({}, translation_domain) }}" {% elseif attrname in ['input_group'] %}{% else %}{{ attrname }}="{{ attrvalue }}" {% endif %}{% endfor %}
     {% endspaceless %}
 {% endblock widget_attributes %}
