@@ -15,7 +15,7 @@ First you need to add `akuma/bootswatch-bundle` to `composer.json`:
 ```json
 {
    "require": {
-        "akuma/bootsswatch-bundle": "dev-master"
+        "akuma/bootswatch-bundle": "dev-master"
     }
 }
 ```
