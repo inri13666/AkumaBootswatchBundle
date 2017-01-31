@@ -3,7 +3,6 @@
     "type"             : "symfony-bundle",
     "description"      : "Akuma Bootswatch Bundle",
     "keywords"         : ["bootstrap", "bootswatch"],
-    "homepage"         : "",
     "license"          : "MIT",
     "authors"          : [
         {
@@ -14,11 +13,11 @@
     "minimum-stability": "dev",
     "require"          : {
         "php"                  : ">=5.3",
-        "thomaspark/bootswatch": "~3.3"
+        "thomaspark/bootswatch": "~3.3.7"
     },
     "require-dev"      : {
-        "leafo/scssphp"    : "0.1.*",
-        "oyejorge/less.php": "~1.5"
+        "leafo/scssphp"    : "~0.6.6",
+        "oyejorge/less.php": "~1.7"
     },
     "target-dir"       : "Akuma/Bundle/BootswatchBundle",
     "autoload"         : {

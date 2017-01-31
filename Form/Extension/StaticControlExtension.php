@@ -4,11 +4,20 @@ namespace Akuma\Bundle\BootswatchBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-
+use Akuma\Bundle\BootswatchBundle\Util\LegacyFormHelper;
+/**
+ * StaticControlExtension
+ *
+ * @package    BraincraftedBootstrapBundle
+ * @subpackage Form
+ * @author     André Püschel <pue@der-pue.de>
+ * @copyright  2014 André Püschel
+ * @license    http://opensource.org/licenses/MIT The MIT License
+ * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
+ */
 class StaticControlExtension extends AbstractTypeExtension
 {
     /**
@@ -18,15 +27,14 @@ class StaticControlExtension extends AbstractTypeExtension
     {
         $view->vars['static_control'] = $form->getConfig()->getOption('static_control', false);
     }
-
     /**
+     * Add the static_control option
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefined(array('static_control'));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -38,7 +46,6 @@ class StaticControlExtension extends AbstractTypeExtension
             $builder->setDisabled(true);
         }
     }
-
     /**
      * {@inheritdoc}
      * Although we only support a field that provides a somewhat text-value we extend the form field.
@@ -48,6 +55,7 @@ class StaticControlExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        // map old class to new one using LegacyFormHelper
+        return LegacyFormHelper::getType('form');
     }
 }

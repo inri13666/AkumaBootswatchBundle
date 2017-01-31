@@ -6,7 +6,9 @@
 namespace Akuma\Bundle\BootswatchBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Akuma\Bundle\BootswatchBundle\Util\LegacyFormHelper;
 
 /**
  * FormStaticControlType
@@ -23,7 +25,7 @@ class FormStaticControlType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             //'mapped'         => false,
@@ -31,19 +33,26 @@ class FormStaticControlType extends AbstractType
             'disabled'      => true,
         ));
     }
-
     /**
      * {@inheritdoc}
      */
     public function getParent()
     {
-        return 'text';
+        // map old class to new one using LegacyFormHelper
+        return LegacyFormHelper::getType('text');
     }
-
+    /**
+     * Backward compatibility for SF < 3.0
+     *
+     * @return null|string
+     */
+    public function getName() {
+        return $this->getBlockPrefix();
+    }
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'bs_static';
     }

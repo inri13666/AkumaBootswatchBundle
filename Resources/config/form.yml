@@ -8,6 +8,9 @@ parameters:
     akuma_bootswatch.form.extension.button_extension.class: Akuma\Bundle\BootswatchBundle\Form\Extension\ButtonTypeExtension
     akuma_bootswatch.form.extension.static_control.class: Akuma\Bundle\BootswatchBundle\Form\Extension\StaticControlExtension
     akuma_bootswatch.form.extension.input_group_button.class: Akuma\Bundle\BootswatchBundle\Form\Extension\InputGroupButtonExtension
+    symfony.component.form.extension.core.type.form_type.class: Symfony\Component\Form\Extension\Core\Type\FormType
+    symfony.component.form.extension.core.type.button_type.class: Symfony\Component\Form\Extension\Core\Type\ButtonType
+    symfony.component.form.extension.core.type.text_type.class: Symfony\Component\Form\Extension\Core\Type\TextType
 
 services:
 #    akuma_bootswatch.example:
@@ -33,20 +36,20 @@ services:
     #EXTENSIONS
     akuma_bootswatch.form.extension.typesetter_extension:
         class: %akuma_bootswatch.form.extension.typesetter_extension.class%
-        tags: [{ name: form.type_extension , alias: form }]
+        tags: [{ name: form.type_extension , extended_type: %symfony.component.form.extension.core.type.form_type.class% }]
 
     akuma_bootswatch.form.extension.form_action_button:
         class: %akuma_bootswatch.form.extension.button_extension.class%
-        tags: [{ name: form.type_extension , alias: button }]
+        tags: [{ name: form.type_extension , extended_type: %symfony.component.form.extension.core.type.button_type.class% }]
 
     akuma_bootswatch.form.extension.static_control:
         class: %akuma_bootswatch.form.extension.static_control.class%
-        tags: [{ name: form.type_extension , alias: form }]
+        tags: [{ name: form.type_extension , extended_type: %symfony.component.form.extension.core.type.form_type.class% }]
 
     akuma_bootswatch.form.extension.input_group_button:
         class: %akuma_bootswatch.form.extension.input_group_button.class%
-        tags: [{ name: form.type_extension , alias: text }]
+        tags: [{ name: form.type_extension , extended_type: %symfony.component.form.extension.core.type.text_type.class% }]
 
     akuma_bootswatch.form.extension.form_style:
         class: %akuma_bootswatch.form.extension.form_style.class%
-        tags: [{ name: form.type_extension , alias: form }]
+        tags: [{ name: form.type_extension , extended_type: %symfony.component.form.extension.core.type.form_type.class% }]
